@@ -190,7 +190,7 @@ def _dataset():
 @code
 def _dataset_peek():
     rows = eval_dataset.load()
-    for row in rows[:2]:
+    for row in rows.select(range(2)):
         prompt = row["prompt"]
         if isinstance(prompt, list):
             prompt = prompt[0]["content"] if prompt else ""
